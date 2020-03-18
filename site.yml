@@ -1,0 +1,37 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Check wether istio is installed or not
+      stat:
+        path: /usr/local/bin/istioctl
+      register: istioctl_bin
+
+    - name: Download istio
+      get_url:
+        url: "https://github.com/istio/istio/releases/download/{{ istio_version }}/istio-{{ istio_version }}-linux.tar.gz"
+        dest: /tmp
+        checksum: "sha256:https://github.com/istio/istio/releases/download/{{ istio_version }}/istio-{{ istio_version }}-linux.tar.gz.sha256"
+      when: istioctl_bin.stat.exists == false
+
+    - name: Unarchive istio
+      unarchive:
+        src: "/tmp/istio-{{ istio_version }}-linux.tar.gz"
+        dest: .
+      when: istioctl_bin.stat.exists == false
+
+    - name: Install istioctl
+      copy:
+        src: "istio-{{ istio_version }}/bin/istioctl"
+        dest: /usr/local/bin/istioctl
+        owner: root
+        group: root
+        mode: '0755'
+      become: true
+      when: istioctl_bin.stat.exists == false
+
+    - name: Delete temporary files
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /tmp/istio-{{ istio_version }}-linux.tar.gz
