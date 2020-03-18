@@ -12,55 +12,71 @@ A Makefile is providing :
 
 # Overview
 
-## Components:
+## Components
 
 ### base
+
 ```enabled: true```
 
 ### citadel
+
 ```enabled: false```
 
 ### cni
+
 ```enabled: false```
 
 ### egressGateways
+
 ```enabled: true```
 
-### galley:
+### galley
+
 ```enabled: false```
 
-### ingressGateways:
+### ingressGateways
+
 ```enabled: true```
 
-### nodeAgent:
+### nodeAgent
+
 ```enabled: false```
 
-### pilot:
+### pilot
+
 ```enabled: true```
 
-### policy:
+### policy
+
 ```enabled: false```
 
-### sidecarInjector:
+### sidecarInjector
+
 ```enabled: false```
 
-### telemetry:
+### telemetry
+
 ```enabled: false```
 
 
 ## Addon components
 
-### grafana:
+### grafana
+
 ```enabled: true```
 
-### istiocoredns:
+### istiocoredns
+
 ```enabled: false```
 
-### kiali:
+### kiali
+
 ```enabled: true```
 
-### prometheus:
+### prometheus
+
 ```enabled: true```
 
-### tracing:
+### tracing
+
 ```enabled: true```
