@@ -3,6 +3,7 @@ all: install
 
 setup:
 	ansible-playbook -D -i hosts site.yml
+	minikube start --memory=4096
 	kubectx minikube
 	istioctl manifest apply --set profile=demo
 	kubectl create namespace demo
