@@ -12,9 +12,9 @@ A Makefile is providing :
 
 # Overview
 
-## Components
+## Components
 
-### base
+### base
 
 ```enabled: true```
 
@@ -22,7 +22,7 @@ A Makefile is providing :
 
 ```enabled: false```
 
-### cni
+### cni
 
 ```enabled: false```
 
@@ -30,7 +30,7 @@ A Makefile is providing :
 
 ```enabled: true```
 
-### galley
+### galley
 
 ```enabled: false```
 
@@ -65,7 +65,7 @@ A Makefile is providing :
 
 ```enabled: true```
 
-### istiocoredns
+### istiocoredns
 
 ```enabled: false```
 
